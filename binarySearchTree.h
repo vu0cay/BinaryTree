@@ -20,7 +20,7 @@ Tree Create(KeyType x,Tree l,Tree r){
 	N->Key = x;
 	N->left = l;
 	N->right = r;
-	
+
 	return N;
 }
 KeyType RootKey(Tree T){
@@ -40,27 +40,28 @@ Tree Search(KeyType x, Tree Root){
 		if(x == RootKey(Root)) return Root;
 		else
 		if(x > RootKey(Root)) return Search(x,RightChild(Root));
-		else 
+		else
 		if(x < RootKey(Root)) return Search(x,LeftChild(Root));
 	} else {
 		printf("#Search not found!\n");
 		return NULL;
 	}
 }
-void insertNode(KeyType X,Tree *T){
-	if(!isEmpty(*T)){
-		if(X == RootKey(*T)) {
-			printf("%d Already existed!");
-			return;
-		} 
-		else
-		if(X < RootKey(*T)) insertNode(X,&(*T)->left);
-		else 
-		if(X > RootKey(*T)) insertNode(X,&(*T)->right);
-	} else {
-		(*T) = Create(X,NULL,NULL);
+void InsertNode(KeyType X,Tree *T){
+	if(isEmpty(*T))
+	{
+        (*T) = Create(X,NULL,NULL);
 	}
+	else
+		if(RootKey(*T) == X)
+			printf("Key %d is existing in BST\n", X);
+	else
+		if( RootKey(*T) > X)
+			InsertNode(X,&(*T)->left);
+	else
+			InsertNode(X,&(*T)->right);
 }
+
 KeyType deletemin(Tree *T){
 	if(LeftChild(*T)!=NULL){
 		return deletemin(&(*T)->left);
@@ -89,14 +90,14 @@ void deleteNode(KeyType X, Tree *T){
 			if(isLeaf(*T)) (*T) = NULL;
 			// Truong Hop 2:
 			else if(LeftChild(*T) == NULL && RightChild(*T) != NULL)
-					(*T) = RightChild(*T);	
-			
-			else if(LeftChild(*T) != NULL && RightChild(*T) == NULL) 
-					(*T) = LeftChild(*T);	
+					(*T) = RightChild(*T);
+
+			else if(LeftChild(*T) != NULL && RightChild(*T) == NULL)
+					(*T) = LeftChild(*T);
 			// Truong Hop 3:
 			else {
 				//(*T)->Key = deletemin(&(*T)->right); // cach 1: thay root = node nho nhat ben phai
-				(*T)->Key = deletemax(&(*T)->left); // cach 2: thay root = node lon nhat ben trai 
+				(*T)->Key = deletemax(&(*T)->left); // cach 2: thay root = node lon nhat ben trai
 			}
 			return;
 		}
