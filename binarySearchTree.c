@@ -1,23 +1,25 @@
+/*
+16
+90 30 50 10 25 35 20 30 15 80 75 45 65 5 55 100
+*/
 #include "binarySearchTree.h"
 
 int main(){
-	int n; 
+	int n;
 	int i;
-	KeyType A[n+1];
+    scanf("%d",&n);
 	Tree T;
 	makenull(&T);
-	scanf("%d",&n);
+    KeyType A[n+1];
 	for(i = 0; i<n; i++) {
 		scanf("%d",&A[i]);
-		insertNode(A[i],&T);
+		InsertNode(A[i],&T);
 	}
-	NLR(T); printf("\n"); // preOrder
-	LNR(T); printf("\n"); // inOrder
-	LRN(T); printf("\n"); // postOrder
-	printf("\n");
-	deleteNode(10,&T);
-	NLR(T); printf("\n"); // preOrder
-	LNR(T); printf("\n"); // inOrder
-	LRN(T); printf("\n"); // postOrder
+	NLR(T); printf("\n");
+    deleteNode(35,&T);
+    deleteNode(65,&T);
+    InsertNode(43,&T);
+    deleteNode(50,&T);
+    NLR(T);
 	return 0;
 }
