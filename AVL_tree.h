@@ -3,7 +3,7 @@
 typedef int KeyType;
 typedef struct Nodetag{
 	int Bal; // he so can bang = chieu cao con trai - chieu cao con phai
-	//quy dinh 
+	//quy tac
 	//neu Bal < -1 thi lech con phai (height right > height left)
 	//neu Bal > 1 thi lech con trai (height right < height left) 
 	//neu Bal = 0 thi height left == height right
