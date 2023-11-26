@@ -91,6 +91,7 @@ AVLTree RL_Rotation(AVLTree root){
 	return newTree;
 	
 }
+/*================================================================================================================*/
 AVLTree update(AVLTree T){
 	T->Bal = get_height(T->left) - get_height(T->right);	
 	//cay mat can bang
