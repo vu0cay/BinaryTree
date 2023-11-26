@@ -38,11 +38,11 @@ int get_height(AVLTree T){
 /*================================CAC_PHEP_XOAY_TREN_CAY_NHI_PHAN_TIM_KIEM========================================*/
 // lech ben trai cua con trai, Phep Left-Left
 AVLTree LL_Rotation(AVLTree root){
-	AVLTree newTree = root->left;
-	root->left = newTree->right;
-	newTree->right = root;
+	AVLTree newTree = root->left; // cho left len lam Root
+	root->left = newTree->right; // cho con trai root = con phai nut left
+	newTree->right = root; // cho nut root cu~ thanh con phai nut root moi
 	
-	root->Bal = get_height(root->left) - get_height(root->right);
+	root->Bal = get_height(root->left) - get_height(root->right); // cap nhat lai chieu cao cac nut
 	newTree->Bal = get_height(newTree->left) - get_height(newTree->right);
 	
 	return newTree;
