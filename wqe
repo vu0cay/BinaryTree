@@ -1,0 +1,26 @@
+List makeNode(ElementType x)
+{
+	List newnode = (Node*)malloc(sizeof(Node));
+	newnode->next = NULL;
+	newnode->data = x;
+	
+	return newnode;
+}
+void insert_first(ElementType x, List *L)
+{
+
+	    List newnode = makeNode(x);
+    	List tmp = (*L)->next;
+    	newnode->next = tmp;
+    	(*L)->next = newnode;
+
+}
+// cau 1
+void print_path(KeyType x, Tree T){
+	if(T != NULL){
+		printf("%d ",T->key);
+		if(x == T->key) printf(" --> Tim thay");
+		else if(x > T->key) print_path(x,T->right);
+		else if(x < T->key) print_path(x,T->left); 
+	} else printf(" --> Tim khong thay");
+}
