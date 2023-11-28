@@ -1,17 +1,5 @@
-/* TEST CASE
-	T = insert_node(12,T);
-	T = insert_node(34,T);	
-	T = insert_node(53,T);
-	T = insert_node(76,T);
-	T = insert_node(15,T);
-	T = insert_node(21,T);
-	T = insert_node(18,T);	
-	T = insert_node(45,T);
-	T = insert_node(16,T);
-	T = insert_node(55,T);	
-	T = insert_node(11,T);
-*/
-
+// NGUYEN HOANG VU 28-11-2023
+// TEST CASE https://stackoverflow.com/questions/3955680/how-to-check-if-my-avl-tree-implementation-is-correct
 #define el printf("\n") 
 #include "AVL_tree.h"
 
